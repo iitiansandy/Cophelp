@@ -6,7 +6,7 @@ app.use(express.urlencoded({ extended: true }));
 
 const admin = require('firebase-admin');
 
-const credentials = require("./key.json");
+const credentials = require("../key.json");
 
 admin.initializeApp({
     credential: admin.credential.cert(credentials)
@@ -85,3 +85,5 @@ const PORT = process.env.PORT || 4444;
 app.listen(PORT, () => {
     console.log('App is running on port', PORT);
 })
+
+exports.api = functions.https.onRequest(app);
