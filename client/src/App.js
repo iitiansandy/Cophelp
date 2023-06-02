@@ -41,7 +41,7 @@ function App() {
          </section>
          <section className="flex justify-center py-10">
             <div className="max-w-[1200px] w-full min-h-[300px] relative bg-[#e2ff7e] rounded-[15px]">
-               <div className="bg-[url(./assets/Images/asset-grid.png)] bg-no-repeat bg-cover opacity-[.5] top-0 left-0 absolute w-full h-full"></div>
+               <div className="contrast-700 bg-[url(./assets/Images/asset-grid.png)] bg-no-repeat bg-cover opacity-[.5] top-0 left-0 absolute w-full h-full"></div>
                <div className="w-full h-full p-5 flex box-border">
                   <div className="flex-1 box-border text-[40px] font-bold">
                      <h1 className="mt-5">
