@@ -86,4 +86,4 @@ app.listen(PORT, () => {
     console.log('App is running on port', PORT);
 })
 
-exports.api = functions.https.onRequest(app);
+// exports.api = functions.https.onRequest(app);
