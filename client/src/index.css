@@ -10,9 +10,25 @@ body {
 }
 html{
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 
 *{
   box-sizing: border-box;
+}
+
+.cardForContent:hover .cardHidden{
+  display: block;
+  opacity: 1;
+}
+.cardHidden{
+  display: none;
+  opacity: 0;
+}
+
+.innerItem > ul > li:before{
+  content: '\1F449';
+  margin-right: 5px;
+  font-family: FontAwesome;
 }
