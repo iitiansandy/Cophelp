@@ -1,20 +1,19 @@
 {
-  "name": "firebase",
+  "name": "turtltechtool",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "firebase deploy --only functions:api"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "firebase-admin": "^11.9.0",
-    "firebase-functions": "^4.4.0"
+    "mongoose": "^7.2.1"
   }
 }
