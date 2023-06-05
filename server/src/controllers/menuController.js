@@ -59,8 +59,7 @@ const getAllMenus = async (req, res) => {
 const updateMenuById = async (req, res) => {
   try {
     let menuId = req.params.menuId;
-    let idx = req.params.idx;
-
+    
     if (!isValidObjectId(menuId)) {
       return res.status(400).send({
         status: false,
