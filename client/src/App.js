@@ -29,122 +29,9 @@ let tags = [
    "Education",
    "Insurance",
 ];
-let data = [
-   {
-      _id: "6475cf557497dcc5ce52bbc6",
-      menuName: "web development",
-      toolsName: [
-         {
-            name: "web dev",
-            url: "www.turtltech.com",
-            _id: "6475cf557497dcc5ce52bbc7",
-         },
-      ],
-      createdAt: "2023-05-30T10:26:29.987Z",
-      updatedAt: "2023-05-30T10:26:29.987Z",
-      __v: 0,
-   },
-   {
-      _id: "6475d0e740b12201004f0355",
-      menuName: "AI and Machine Learning",
-      toolsName: [
-         {
-            name: "Machine Learning",
-            url: "www.turtltech.com",
-            _id: "6475d0e740b12201004f0356",
-         },
-      ],
-      createdAt: "2023-05-30T10:33:11.448Z",
-      updatedAt: "2023-05-30T10:55:26.476Z",
-      __v: 0,
-   },
-   {
-      _id: "6476d26eb7d93dc1b97147ac",
-      menuName: "VAPT Services 1",
-      toolsName: [
-         {
-            name: "VAPT services",
-            url: "www.google.com",
-            _id: "6476d26eb7d93dc1b97147ad",
-         },
-      ],
-      createdAt: "2023-05-31T04:51:58.392Z",
-      updatedAt: "2023-05-31T04:51:58.392Z",
-      __v: 0,
-   },
-   {
-      _id: "6476d26eb7d93dc1b97147ac",
-      menuName: "VAPT Services 2",
-      toolsName: [
-         {
-            name: "VAPT services",
-            url: "www.google.com",
-            _id: "6476d26eb7d93dc1b97147ad",
-         },
-      ],
-      createdAt: "2023-05-31T04:51:58.392Z",
-      updatedAt: "2023-05-31T04:51:58.392Z",
-      __v: 0,
-   },
-   {
-      _id: "6476d26eb7d93dc1b97147ac",
-      menuName: "VAPT Services 3",
-      toolsName: [
-         {
-            name: "VAPT services",
-            url: "www.google.com",
-            _id: "6476d26eb7d93dc1b97147ad",
-         },
-      ],
-      createdAt: "2023-05-31T04:51:58.392Z",
-      updatedAt: "2023-05-31T04:51:58.392Z",
-      __v: 0,
-   },
-   {
-      _id: "6476d26eb7d93dc1b97147ac",
-      menuName: "VAPT Services 4",
-      toolsName: [
-         {
-            name: "VAPT services",
-            url: "www.google.com",
-            _id: "6476d26eb7d93dc1b97147ad",
-         },
-      ],
-      createdAt: "2023-05-31T04:51:58.392Z",
-      updatedAt: "2023-05-31T04:51:58.392Z",
-      __v: 0,
-   },
-   {
-      _id: "6476d26eb7d93dc1b97147ac",
-      menuName: "VAPT Services 5",
-      toolsName: [
-         {
-            name: "VAPT services",
-            url: "www.google.com",
-            _id: "6476d26eb7d93dc1b97147ad",
-         },
-      ],
-      createdAt: "2023-05-31T04:51:58.392Z",
-      updatedAt: "2023-05-31T04:51:58.392Z",
-      __v: 0,
-   },
-   {
-      _id: "6476d26eb7d93dc1b97147ac",
-      menuName: "VAPT Services 6",
-      toolsName: [
-         {
-            name: "VAPT services",
-            url: "www.google.com",
-            _id: "6476d26eb7d93dc1b97147ad",
-         },
-      ],
-      createdAt: "2023-05-31T04:51:58.392Z",
-      updatedAt: "2023-05-31T04:51:58.392Z",
-      __v: 0,
-   },
-];
+
 function App() {
-   const [menus, setMenus] = useState(data);
+   const [menus, setMenus] = useState([]);
    const getAllMenu = async () => {
       await axios
          .get("https://cophelp.vercel.app/menus")
@@ -158,7 +45,7 @@ function App() {
    };
 
    useEffect(() => {
-      // getAllMenu();
+      getAllMenu();
    }, []);
 
    return (
@@ -179,7 +66,7 @@ function App() {
                                  <div className="flex w-[300px] justify-center items-center text-center mt-10 font-semibold text-[30px] duration-500">
                                     {menus[0].menuName}
                                  </div>
-                                 <div className="innerItem cursor-default cardHidden min-w-full w-max text-lg duration-500 mt-2 bg-gradient-to-tl from-[#250069] to-[#000000]">
+                                 <div className="innerItem cursor-default cardHidden min-w-full w-max max-w-[350px]  text-lg duration-500 mt-2 bg-gradient-to-tl from-[#250069] to-[#000000]">
                                     <ul className="p-2">
                                        {menus[0].toolsName.map((el) => (
                                           <li
@@ -209,7 +96,7 @@ function App() {
                                  <div className="flex w-[300px] justify-center items-center text-center mt-10 font-semibold text-[30px] duration-500">
                                     {menus[1].menuName}
                                  </div>
-                                 <div className="innerItem cursor-default cardHidden min-w-full w-max text-lg duration-500 mt-2 bg-gradient-to-tl from-[#250069] to-[#000000]">
+                                 <div className="innerItem cursor-default cardHidden min-w-full w-max max-w-[350px] text-lg duration-500 mt-2 bg-gradient-to-tl from-[#250069] to-[#000000]">
                                     <ul className="p-2">
                                        {menus[1].toolsName.map((el) => (
                                           <li
@@ -239,7 +126,7 @@ function App() {
                                  <div className="flex w-[300px] justify-center items-center text-center mt-10 font-semibold text-[30px] duration-500">
                                     {menus[2].menuName}
                                  </div>
-                                 <div className="innerItem cursor-default cardHidden min-w-full w-max text-lg duration-500 mt-2 bg-gradient-to-tl from-[#250069] to-[#000000]">
+                                 <div className="innerItem cursor-default cardHidden min-w-full w-max max-w-[350px] text-lg duration-500 mt-2 bg-gradient-to-tl from-[#250069] to-[#000000]">
                                     <ul className="p-2">
                                        {menus[2].toolsName.map((el) => (
                                           <li
@@ -269,7 +156,7 @@ function App() {
                                  <div className="flex w-[300px] justify-center items-center text-center mt-10 font-semibold text-[30px] duration-500">
                                     {menus[3].menuName}
                                  </div>
-                                 <div className="innerItem cursor-default cardHidden min-w-full w-max text-lg duration-500 mt-2 bg-gradient-to-tl from-[#250069] to-[#000000]">
+                                 <div className="innerItem cursor-default cardHidden min-w-full w-max max-w-[350px] text-lg duration-500 mt-2 bg-gradient-to-tl from-[#250069] to-[#000000]">
                                     <ul className="p-2">
                                        {menus[3].toolsName.map((el) => (
                                           <li
@@ -325,8 +212,8 @@ function App() {
                                  <div className="flex w-[300px] justify-center items-center text-center mt-10 font-semibold text-[30px] duration-500">
                                     {el.menuName}
                                  </div>
-                                 <div className="innerItem cursor-default cardHidden min-w-full w-max text-lg duration-500 mt-2 bg-gradient-to-tl from-[#250069] to-[#000000]">
-                                    <ul className="p-2">
+                                 <div className="innerItem cursor-default cardHidden min-w-full w-max max-w-[350px] text-lg duration-500 mt-2 bg-gradient-to-tl from-[#250069] to-[#000000]">
+                                    <ul className="p-2 flex-wrap">
                                        {el.toolsName.map((el2) => (
                                           <li
                                              key={el2._id}
@@ -350,11 +237,11 @@ function App() {
                </div>
             </div>
          </section>
-         <section className="flex justify-center py-10">
+         <section className="flex justify-center py-10 px-2">
             <div className="max-w-[1200px] w-full min-h-[300px] relative bg-[#e2ff7e] rounded-[15px]">
                <div className="contrast-700 bg-[url(./assets/Images/asset-grid.png)] bg-no-repeat bg-cover opacity-[.5] top-0 left-0 absolute w-full h-full"></div>
-               <div className="w-full h-full p-5 flex box-border">
-                  <div className="flex-1 box-border text-[40px] font-bold">
+               <div className="w-full h-full p-5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 box-border">
+                  <div className="box-border text-[40px] font-bold mb-4">
                      <h1 className="mt-5">
                         Cybersecurity <br /> Solutions by Industry
                      </h1>
@@ -362,7 +249,7 @@ function App() {
                         Read More
                      </button>
                   </div>
-                  <div className=" flex-1">
+                  <div className="">
                      <div className="flex flex-wrap">
                         {tags.map((el) => (
                            <Tags value={el} />
