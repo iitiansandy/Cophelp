@@ -59,6 +59,7 @@ const getAllMenus = async (req, res) => {
 const updateMenuById = async (req, res) => {
   try {
     let menuId = req.params.menuId;
+    let idx = req.params.idx;
 
     if (!isValidObjectId(menuId)) {
       return res.status(400).send({
@@ -97,12 +98,12 @@ const updateMenuById = async (req, res) => {
     }
 
     if ("toolsName" in body) {
-      if ("name" in body.toolsName[0]) {
-        menu.toolsName[0].name = body.toolsName[0].name;
+      if ("name" in body.toolsName[idx]) {
+        menu.toolsName[idx].name = body.toolsName[idx].name;
       }
 
-      if ("url" in body.toolsName[0]) {
-        menu.toolsName[0].url = body.toolsName[0].url;
+      if ("url" in body.toolsName[idx]) {
+        menu.toolsName[idx].url = body.toolsName[idx].url;
       }
     }
 
@@ -120,7 +121,7 @@ const updateMenuById = async (req, res) => {
 const deleteMenuById = async (req, res) => {
   try {
     let menuId = req.params.menuId;
-    
+    let idx = req.params.idx;
 
     if (!isValidObjectId(menuId)) {
       return res.status(400).send({
@@ -137,13 +138,15 @@ const deleteMenuById = async (req, res) => {
         .send({ status: false, message: "No menu found with this menu id" });
     }
 
-    let deleteMenu = await menuModel.deleteOne({ _id: menuId });
+    // let deleteMenu = await menuModel.deleteOne({ _id: menuId });
 
-    if (!deleteMenu) {
-      return res
-        .status(404)
-        .send({ status: false, message: "Menu not found or already deleted" });
-    }
+    // if (!deleteMenu) {
+    //   return res
+    //     .status(404)
+    //     .send({ status: false, message: "Menu not found or already deleted" });
+    // }
+
+    let deleteMenu = menu.splice()
 
     return res
       .status(200)
