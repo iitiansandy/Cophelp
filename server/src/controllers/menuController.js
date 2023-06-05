@@ -146,11 +146,13 @@ const deleteMenuById = async (req, res) => {
     //     .send({ status: false, message: "Menu not found or already deleted" });
     // }
 
-    let deleteMenu = menu.splice()
+    let deleteMenu = menu.toolsName.splice(idx, 1);
+
+    await menu.save();
 
     return res
       .status(200)
-      .send({ status: false, message: "Menu deleted successfully" });
+      .send({ status: true, message: "Menu deleted successfully" });
   } catch (error) {
     return res.status(500).send({ status: false, message: error.message });
   }
