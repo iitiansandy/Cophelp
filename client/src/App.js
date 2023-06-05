@@ -54,7 +54,7 @@ function App() {
          <Hero />
          <section id="service">
             <div className="flex justify-center items-center bg-black">
-               <div className="box-border justify-center  py-[150px] text-white">
+               <div className="box-border justify-center py-[50px] sm:py-[150px] text-white">
                   <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2">
                      <div className="grid justify-items-center gap-3 gap-y-5  sm:grid-cols-2 grid-cols-1 order-2 sm:order-2 md:order-2 lg:order-2 xl:order-1">
                         <div className="cardForContent w-[300px] cursor-pointer relative h-[300px] rounded-2xl hover:-translate-y-3 hover:z-50 duration-500 bg-[#5A848836] ">
@@ -179,9 +179,9 @@ function App() {
                         </div>
                      </div>
                      <div className="order-1 sm:order-1 md:order-1 lg:order-1 xl:order-2">
-                        <div className=" sm:w-[630px] h-[630px] w-[500px]  rounded-2xl sm:col-span-2 row-span-2 sm:p-4 flex justify-center items-center">
-                           <div className="flex justify-center items-start flex-col max-w-[80%]">
-                              <h1 className="text-start text-[60px] font-semibold my-8 leading-[70px] ">
+                        <div className=" sm:w-[630px] h-[100%] w-[100%] sm:col-span-2 row-span-2 sm:p-4 flex justify-center items-center">
+                           <div className="flex justify-center items-start flex-col max-w-[80%] mb-8 sm:mb-0 ">
+                              <h1 className="text-start text-[40px] sm:text-[60px] font-semibold my-8 leading-[40px] sm:leading-[70px] ">
                                  Cybersecurity solutions
                               </h1>
                               <p className=" text-gray-400">
