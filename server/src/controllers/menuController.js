@@ -28,13 +28,11 @@ const addMenu = async (req, res) => {
 
     await menuModel.create(menuData);
 
-    return res
-      .status(201)
-      .send({
-        status: true,
-        message: "Menu added successfully",
-        data: menuData,
-      });
+    return res.status(201).send({
+      status: true,
+      message: "Menu added successfully",
+      data: menuData,
+    });
   } catch (error) {
     return res.status(500).send({ status: false, message: error.message });
   }
@@ -55,11 +53,28 @@ const getAllMenus = async (req, res) => {
   }
 };
 
+// GET MENU BY MENU ID
+const getMenuById = async (req, res) => {
+  try {
+    let menuId = req.params.menuId;
+
+    let menu = await menuModel.findOne({ _id: menuId });
+
+    if (!menu) {
+      return res.status(404).send({ status: false, message: "Menu not found" });
+    }
+
+    return res.status(200).send({ status: true, data: menu });
+  } catch (error) {
+    return res.status(500).send({ status: false, message: error.message });
+  }
+};
+
 // UPDATE MENU BY MENU ID
 const updateMenuById = async (req, res) => {
   try {
     let menuId = req.params.menuId;
-    
+
     if (!isValidObjectId(menuId)) {
       return res.status(400).send({
         status: false,
@@ -97,7 +112,7 @@ const updateMenuById = async (req, res) => {
     }
 
     if ("toolsName" in body) {
-      menu.toolsName = body.toolsName
+      menu.toolsName = body.toolsName;
     }
 
     await menu.save();
@@ -151,4 +166,4 @@ const deleteMenuById = async (req, res) => {
   }
 };
 
-module.exports = { addMenu, getAllMenus, updateMenuById, deleteMenuById };
+module.exports = { addMenu, getAllMenus, getMenuById, updateMenuById, deleteMenuById };
