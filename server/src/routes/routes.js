@@ -3,6 +3,11 @@ const app = express();
 const router = express.Router();
 
 const menuController = require("../controllers/menuController");
+const adminController = require("../controllers/adminController");
+
+// ADMIN APIs
+router.post("/admin", adminController.signUpAdmin);
+router.post("/login", adminController.loginAdmin);
 
 // MENU APIs ->
 router.post("/menu", menuController.addMenu);
