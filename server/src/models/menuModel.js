@@ -6,15 +6,7 @@ const menuSchema = new mongoose.Schema({
         type: String,
     },
 
-    toolsName: [{
-        name: {
-            type: String
-        },
-
-        url: {
-            type: String
-        }
-    }]
+    toolsName: []
 },
 { timestamps: true });
 
