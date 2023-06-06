@@ -2,6 +2,7 @@ const adminModel = require("../models/adminModel");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const { isValid, isvalidEmail } = require("../utils/utils");
+const { tokenSecretKey } = require('../controllers/config');
 
 // ADD ADMIN
 const signUpAdmin = async (req, res) => {
@@ -94,7 +95,7 @@ const loginAdmin = async (req, res) => {
             adminId: admin._id,
             iat: time,
           },
-          process.env.TOKEN_SECRET_KEY || "admin@cophelp@123",
+          tokenSecretKey,
           { expiresIn: "24h" }
         );
         data.adminId = admin._id;
