@@ -3,6 +3,7 @@ import Footer from "./components/layouts/Footer";
 import Header from "./components/layouts/Header";
 import Hero from "./components/layouts/Hero";
 import Tags from "./components/layouts/Tags";
+import { AiFillCaretRight } from "react-icons/ai";
 import axios from "axios";
 // import img from './assets/Images/asset-06.png'
 
@@ -59,120 +60,304 @@ function App() {
                      <div className="grid justify-items-center gap-3 gap-y-5  sm:grid-cols-2 grid-cols-1 order-2 sm:order-2 md:order-2 lg:order-2 xl:order-1">
                         <div className="cardForContent w-[300px] cursor-pointer relative h-[300px] rounded-2xl hover:-translate-y-3 hover:z-50 duration-500 bg-[#5A848836] ">
                            {menus.length > 0 && (
-                              <div
-                                 className=" w-full hover:bg-[#5a8488] overflow-hidden min-h-full
-                       hover:h-fit hover:w-fit  h-full duration-500   border border-gray-500  hover:border-white rounded-2xl bg-[url(./assets/Images/asset-06.png)] bg-no-repeat bg-cover"
-                              >
-                                 <div className="flex w-[300px] justify-center items-center text-center mt-10 font-semibold text-[30px] duration-500">
-                                    {menus[0].menuName}
-                                 </div>
-                                 <div className="innerItem cursor-default cardHidden min-w-full w-max max-w-[350px]  text-lg duration-500 mt-2 bg-gradient-to-tl from-[#250069] to-[#000000]">
-                                    <ul className="p-2">
-                                       {menus[0].toolsName.map((el) => (
-                                          <li
-                                             key={el._id}
-                                             className="my-2 hover:text-yellow-300"
-                                          >
-                                             <a
-                                                href={el.url}
-                                                target="_blank"
-                                                title={el.url}
-                                             >
-                                                {el.name}
-                                             </a>
-                                          </li>
-                                       ))}
-                                    </ul>
+                              <div className="cardForContent w-[300px] cursor-pointer  h-[300px] rounded-2xl hover:-translate-y-3 hover:z-50 duration-500 bg-[#5A848836] ">
+                                 <div
+                                    className=" w-full hover:bg-[#5a8488]  min-h-full
+                    hover:h-fit hover:w-fit   h-full duration-500 relative  border border-gray-500  hover:border-white rounded-2xl bg-[url(./assets/Images/asset-06.png)] bg-no-repeat bg-cover"
+                                 >
+                                    <div className="flex w-[300px] justify-center items-center text-center mt-10 font-semibold text-[30px] duration-500">
+                                       {menus[0].menuName}
+                                    </div>
+                                    <div className="innerItem cardHidden hover:block cursor-default h-fit  min-w-full w-max max-w-[350px] rounded-b-2xl  text-lg duration-500 mt-2 bg-gradient-to-tl from-[#250069] to-[#000000]">
+                                       <ul className="p-2 capitalize">
+                                          {menus[0].toolsName.map((el) => (
+                                             <>
+                                                {el.submenu ? (
+                                                   <li
+                                                      key={el._id}
+                                                      className="py-2 flex items-center relative group"
+                                                   >
+                                                      <div className="flex justify-between  items-center w-full">
+                                                         {el.submenu}
+                                                         <AiFillCaretRight className=" group-hover:rotate-90 duration-300" />
+                                                      </div>
+                                                      <div className="absolute border-2 hidden hiddenInnerItem mt-8 z-50 top-0 ms-12 rounded-md  w-full p-2 bg-black  group-hover:block">
+                                                         {el.toolsName.map(
+                                                            (
+                                                               innerEl,
+                                                               innerIdx
+                                                            ) => (
+                                                               <ul>
+                                                                  <li className=" hover:text-blue-300 text-white py-2">
+                                                                     <a
+                                                                        key={`${innerIdx}_innerLinks_1`}
+                                                                        href={
+                                                                           innerEl.url
+                                                                        }
+                                                                        target="_blank"
+                                                                        title={
+                                                                           innerEl.url
+                                                                        }
+                                                                     >
+                                                                        {
+                                                                           innerEl.name
+                                                                        }
+                                                                        asfdjasfh
+                                                                        adsfadskfhasdkfhkfd
+                                                                     </a>
+                                                                  </li>
+                                                               </ul>
+                                                            )
+                                                         )}
+                                                      </div>
+                                                   </li>
+                                                ) : (
+                                                   <li
+                                                      key={el._id}
+                                                      className="my-2 hover:text-yellow-300 flex"
+                                                   >
+                                                      <a
+                                                         href={el.url}
+                                                         target="_blank"
+                                                         title={el.url}
+                                                         className="block"
+                                                      >
+                                                         {el.name}
+                                                      </a>
+                                                   </li>
+                                                )}
+                                             </>
+                                          ))}
+                                       </ul>
+                                    </div>
                                  </div>
                               </div>
                            )}
                         </div>
                         <div className="cardForContent w-[300px] cursor-pointer relative h-[300px] rounded-2xl hover:-translate-y-3 hover:z-50 duration-500 bg-[#5A848836] ">
                            {menus.length > 1 && (
-                              <div
-                                 className=" w-full hover:bg-[#5a8488] overflow-hidden min-h-full
-                       hover:h-fit hover:w-fit  h-full duration-500   border border-gray-500  hover:border-white rounded-2xl bg-[url(./assets/Images/asset-06.png)] bg-no-repeat bg-cover"
-                              >
-                                 <div className="flex w-[300px] justify-center items-center text-center mt-10 font-semibold text-[30px] duration-500">
-                                    {menus[1].menuName}
-                                 </div>
-                                 <div className="innerItem cursor-default cardHidden min-w-full w-max max-w-[350px] text-lg duration-500 mt-2 bg-gradient-to-tl from-[#250069] to-[#000000]">
-                                    <ul className="p-2">
-                                       {menus[1].toolsName.map((el) => (
-                                          <li
-                                             key={el._id}
-                                             className="my-2 hover:text-yellow-300"
-                                          >
-                                             <a
-                                                href={el.url}
-                                                target="_blank"
-                                                title={el.url}
-                                             >
-                                                {el.name}
-                                             </a>
-                                          </li>
-                                       ))}
-                                    </ul>
+                              <div className="cardForContent w-[300px] cursor-pointer  h-[300px] rounded-2xl hover:-translate-y-3 hover:z-50 duration-500 bg-[#5A848836] ">
+                                 <div
+                                    className=" w-full hover:bg-[#5a8488]  min-h-full
+                    hover:h-fit hover:w-fit   h-full duration-500 relative  border border-gray-500  hover:border-white rounded-2xl bg-[url(./assets/Images/asset-06.png)] bg-no-repeat bg-cover"
+                                 >
+                                    <div className="flex w-[300px] justify-center items-center text-center mt-10 font-semibold text-[30px] duration-500">
+                                       {menus[1].menuName}
+                                    </div>
+                                    <div className="innerItem cardHidden hover:block cursor-default h-fit  min-w-full w-max max-w-[350px] rounded-b-2xl  text-lg duration-500 mt-2 bg-gradient-to-tl from-[#250069] to-[#000000]">
+                                       <ul className="p-2 capitalize">
+                                          {menus[1].toolsName.map((el) => (
+                                             <>
+                                                {el.submenu ? (
+                                                   <li
+                                                      key={el._id}
+                                                      className="py-2 flex items-center relative group"
+                                                   >
+                                                      <div className="flex justify-between  items-center w-full">
+                                                         {el.submenu}
+                                                         <AiFillCaretRight className=" group-hover:rotate-90 duration-300" />
+                                                      </div>
+                                                      <div className="absolute border-2 hidden hiddenInnerItem mt-8 z-50 top-0 ms-12 rounded-md  w-full p-2 bg-black  group-hover:block">
+                                                         {el.toolsName.map(
+                                                            (
+                                                               innerEl,
+                                                               innerIdx
+                                                            ) => (
+                                                               <ul>
+                                                                  <li className=" hover:text-blue-300 text-white py-2">
+                                                                     <a
+                                                                        key={`${innerIdx}_innerLinks_1`}
+                                                                        href={
+                                                                           innerEl.url
+                                                                        }
+                                                                        target="_blank"
+                                                                        title={
+                                                                           innerEl.url
+                                                                        }
+                                                                     >
+                                                                        {
+                                                                           innerEl.name
+                                                                        }
+                                                                        asfdjasfh
+                                                                        adsfadskfhasdkfhkfd
+                                                                     </a>
+                                                                  </li>
+                                                               </ul>
+                                                            )
+                                                         )}
+                                                      </div>
+                                                   </li>
+                                                ) : (
+                                                   <li
+                                                      key={el._id}
+                                                      className="my-2 hover:text-yellow-300 flex"
+                                                   >
+                                                      <a
+                                                         href={el.url}
+                                                         target="_blank"
+                                                         title={el.url}
+                                                         className="block"
+                                                      >
+                                                         {el.name}
+                                                      </a>
+                                                   </li>
+                                                )}
+                                             </>
+                                          ))}
+                                       </ul>
+                                    </div>
                                  </div>
                               </div>
                            )}
                         </div>
                         <div className="cardForContent w-[300px] cursor-pointer relative h-[300px] rounded-2xl hover:-translate-y-3 hover:z-50 duration-500 bg-[#5A848836] ">
                            {menus.length > 2 && (
-                              <div
-                                 className=" w-full hover:bg-[#5a8488] overflow-hidden min-h-full
-                       hover:h-fit hover:w-fit  h-full duration-500   border border-gray-500  hover:border-white rounded-2xl bg-[url(./assets/Images/asset-06.png)] bg-no-repeat bg-cover"
-                              >
-                                 <div className="flex w-[300px] justify-center items-center text-center mt-10 font-semibold text-[30px] duration-500">
-                                    {menus[2].menuName}
-                                 </div>
-                                 <div className="innerItem cursor-default cardHidden min-w-full w-max max-w-[350px] text-lg duration-500 mt-2 bg-gradient-to-tl from-[#250069] to-[#000000]">
-                                    <ul className="p-2">
-                                       {menus[2].toolsName.map((el) => (
-                                          <li
-                                             key={el._id}
-                                             className="my-2 hover:text-yellow-300"
-                                          >
-                                             <a
-                                                href={el.url}
-                                                target="_blank"
-                                                title={el.url}
-                                             >
-                                                {el.name}
-                                             </a>
-                                          </li>
-                                       ))}
-                                    </ul>
+                              <div className="cardForContent w-[300px] cursor-pointer  h-[300px] rounded-2xl hover:-translate-y-3 hover:z-50 duration-500 bg-[#5A848836] ">
+                                 <div
+                                    className=" w-full hover:bg-[#5a8488]  min-h-full
+                    hover:h-fit hover:w-fit   h-full duration-500 relative  border border-gray-500  hover:border-white rounded-2xl bg-[url(./assets/Images/asset-06.png)] bg-no-repeat bg-cover"
+                                 >
+                                    <div className="flex w-[300px] justify-center items-center text-center mt-10 font-semibold text-[30px] duration-500">
+                                       {menus[2].menuName}
+                                    </div>
+                                    <div className="innerItem cardHidden hover:block cursor-default h-fit  min-w-full w-max max-w-[350px] rounded-b-2xl  text-lg duration-500 mt-2 bg-gradient-to-tl from-[#250069] to-[#000000]">
+                                       <ul className="p-2 capitalize">
+                                          {menus[2].toolsName.map((el) => (
+                                             <>
+                                                {el.submenu ? (
+                                                   <li
+                                                      key={el._id}
+                                                      className="py-2 flex items-center relative group"
+                                                   >
+                                                      <div className="flex justify-between  items-center w-full">
+                                                         {el.submenu}
+                                                         <AiFillCaretRight className=" group-hover:rotate-90 duration-300" />
+                                                      </div>
+                                                      <div className="absolute border-2 hidden hiddenInnerItem mt-8 z-50 top-0 ms-12 rounded-md  w-full p-2 bg-black  group-hover:block">
+                                                         {el.toolsName.map(
+                                                            (
+                                                               innerEl,
+                                                               innerIdx
+                                                            ) => (
+                                                               <ul>
+                                                                  <li className=" hover:text-blue-300 text-white py-2">
+                                                                     <a
+                                                                        key={`${innerIdx}_innerLinks_1`}
+                                                                        href={
+                                                                           innerEl.url
+                                                                        }
+                                                                        target="_blank"
+                                                                        title={
+                                                                           innerEl.url
+                                                                        }
+                                                                     >
+                                                                        {
+                                                                           innerEl.name
+                                                                        }
+                                                                        asfdjasfh
+                                                                        adsfadskfhasdkfhkfd
+                                                                     </a>
+                                                                  </li>
+                                                               </ul>
+                                                            )
+                                                         )}
+                                                      </div>
+                                                   </li>
+                                                ) : (
+                                                   <li
+                                                      key={el._id}
+                                                      className="my-2 hover:text-yellow-300 flex"
+                                                   >
+                                                      <a
+                                                         href={el.url}
+                                                         target="_blank"
+                                                         title={el.url}
+                                                         className="block"
+                                                      >
+                                                         {el.name}
+                                                      </a>
+                                                   </li>
+                                                )}
+                                             </>
+                                          ))}
+                                       </ul>
+                                    </div>
                                  </div>
                               </div>
                            )}
                         </div>
                         <div className="cardForContent w-[300px] cursor-pointer relative h-[300px] rounded-2xl hover:-translate-y-3 hover:z-50 duration-500 bg-[#5A848836] ">
                            {menus.length > 3 && (
-                              <div
-                                 className=" w-full hover:bg-[#5a8488] overflow-hidden min-h-full
-                       hover:h-fit hover:w-fit  h-full duration-500   border border-gray-500  hover:border-white rounded-2xl bg-[url(./assets/Images/asset-06.png)] bg-no-repeat bg-cover"
-                              >
-                                 <div className="flex w-[300px] justify-center items-center text-center mt-10 font-semibold text-[30px] duration-500">
-                                    {menus[3].menuName}
-                                 </div>
-                                 <div className="innerItem cursor-default cardHidden min-w-full w-max max-w-[350px] text-lg duration-500 mt-2 bg-gradient-to-tl from-[#250069] to-[#000000]">
-                                    <ul className="p-2">
-                                       {menus[3].toolsName.map((el) => (
-                                          <li
-                                             key={el._id}
-                                             className="my-2 hover:text-yellow-300"
-                                          >
-                                             <a
-                                                href={el.url}
-                                                target="_blank"
-                                                title={el.url}
-                                             >
-                                                {el.name}
-                                             </a>
-                                          </li>
-                                       ))}
-                                    </ul>
+                              <div className="cardForContent w-[300px] cursor-pointer  h-[300px] rounded-2xl hover:-translate-y-3 hover:z-50 duration-500 bg-[#5A848836] ">
+                                 <div
+                                    className=" w-full hover:bg-[#5a8488]  min-h-full
+                       hover:h-fit hover:w-fit   h-full duration-500 relative  border border-gray-500  hover:border-white rounded-2xl bg-[url(./assets/Images/asset-06.png)] bg-no-repeat bg-cover"
+                                 >
+                                    <div className="flex w-[300px] justify-center items-center text-center mt-10 font-semibold text-[30px] duration-500">
+                                       {menus[3].menuName}
+                                    </div>
+                                    <div className="innerItem cardHidden hover:block cursor-default h-fit  min-w-full w-max max-w-[350px] rounded-b-2xl  text-lg duration-500 mt-2 bg-gradient-to-tl from-[#250069] to-[#000000]">
+                                       <ul className="p-2 capitalize">
+                                          {menus[3].toolsName.map((el) => (
+                                             <>
+                                                {el.submenu ? (
+                                                   <li
+                                                      key={el._id}
+                                                      className="py-2 flex items-center relative group"
+                                                   >
+                                                      <div className="flex justify-between  items-center w-full">
+                                                         {el.submenu}
+                                                         <AiFillCaretRight className=" group-hover:rotate-90 duration-300" />
+                                                      </div>
+                                                      <div className="absolute border-2 hidden hiddenInnerItem mt-8 z-50 top-0 ms-12 rounded-md  w-full p-2 bg-black  group-hover:block">
+                                                         {el.toolsName.map(
+                                                            (
+                                                               innerEl,
+                                                               innerIdx
+                                                            ) => (
+                                                               <ul>
+                                                                  <li className=" hover:text-blue-300 text-white py-2">
+                                                                     <a
+                                                                        key={`${innerIdx}_innerLinks_1`}
+                                                                        href={
+                                                                           innerEl.url
+                                                                        }
+                                                                        target="_blank"
+                                                                        title={
+                                                                           innerEl.url
+                                                                        }
+                                                                     >
+                                                                        {
+                                                                           innerEl.name
+                                                                        }
+                                                                        asfdjasfh
+                                                                        adsfadskfhasdkfhkfd
+                                                                     </a>
+                                                                  </li>
+                                                               </ul>
+                                                            )
+                                                         )}
+                                                      </div>
+                                                   </li>
+                                                ) : (
+                                                   <li
+                                                      key={el._id}
+                                                      className="my-2 hover:text-yellow-300 flex"
+                                                   >
+                                                      <a
+                                                         href={el.url}
+                                                         target="_blank"
+                                                         title={el.url}
+                                                         className="block"
+                                                      >
+                                                         {el.name}
+                                                      </a>
+                                                   </li>
+                                                )}
+                                             </>
+                                          ))}
+                                       </ul>
+                                    </div>
                                  </div>
                               </div>
                            )}
@@ -203,30 +388,74 @@ function App() {
                         menus.slice(4).map((el, i) => (
                            <div
                               key={el._id}
-                              className="cardForContent w-[300px] cursor-pointer relative h-[300px] rounded-2xl hover:-translate-y-3 hover:z-50 duration-500 bg-[#5A848836] "
+                              className="cardForContent w-[300px] cursor-pointer  h-[300px] rounded-2xl hover:-translate-y-3 hover:z-50 duration-500 bg-[#5A848836] "
                            >
                               <div
-                                 className=" w-full hover:bg-[#5a8488] overflow-hidden min-h-full
-                       hover:h-fit hover:w-fit  h-full duration-500   border border-gray-500  hover:border-white rounded-2xl bg-[url(./assets/Images/asset-06.png)] bg-no-repeat bg-cover"
+                                 className=" w-full hover:bg-[#5a8488]  min-h-full
+                       hover:h-fit hover:w-fit   h-full duration-500 relative  border border-gray-500  hover:border-white rounded-2xl bg-[url(./assets/Images/asset-06.png)] bg-no-repeat bg-cover"
                               >
                                  <div className="flex w-[300px] justify-center items-center text-center mt-10 font-semibold text-[30px] duration-500">
                                     {el.menuName}
                                  </div>
-                                 <div className="innerItem cursor-default cardHidden min-w-full w-max max-w-[350px] text-lg duration-500 mt-2 bg-gradient-to-tl from-[#250069] to-[#000000]">
-                                    <ul className="p-2 flex-wrap">
-                                       {el.toolsName.map((el2) => (
-                                          <li
-                                             key={el2._id}
-                                             className="my-2 hover:text-yellow-300"
-                                          >
-                                             <a
-                                                href={el2.url}
-                                                target="_blank"
-                                                title={el2.url}
-                                             >
-                                                {el2.name}
-                                             </a>
-                                          </li>
+                                 <div className="innerItem cardHidden hover:block cursor-default   min-w-full w-max max-w-[350px] rounded-b-2xl  text-lg duration-500 mt-2 bg-gradient-to-tl from-[#250069] to-[#000000]">
+                                    <ul className="p-2 capitalize">
+                                       {el.toolsName.map((el) => (
+                                          <>
+                                             {el.submenu ? (
+                                                <li
+                                                   key={el._id}
+                                                   className="py-2 flex items-center relative group"
+                                                >
+                                                   <div className="flex justify-between  items-center w-full ">
+                                                      {el.submenu}
+                                                      <AiFillCaretRight className=" group-hover:rotate-90 duration-300" />
+                                                   </div>
+                                                   <div className="absolute border-2 hidden hiddenInnerItem mt-8 z-50 top-0 ms-12 rounded-md  w-full p-2 bg-black  group-hover:block">
+                                                      {el.toolsName.map(
+                                                         (
+                                                            innerEl,
+                                                            innerIdx
+                                                         ) => (
+                                                            <ul>
+                                                               <li className=" hover:text-blue-300 text-white py-2">
+                                                                  <a
+                                                                     key={`${innerIdx}_innerLinks_1`}
+                                                                     href={
+                                                                        innerEl.url
+                                                                     }
+                                                                     target="_blank"
+                                                                     title={
+                                                                        innerEl.url
+                                                                     }
+                                                                  >
+                                                                     {
+                                                                        innerEl.name
+                                                                     }
+                                                                     asfdjasfh
+                                                                     adsfadskfhasdkfhkfd
+                                                                  </a>
+                                                               </li>
+                                                            </ul>
+                                                         )
+                                                      )}
+                                                   </div>
+                                                </li>
+                                             ) : (
+                                                <li
+                                                   key={el._id}
+                                                   className="my-2 hover:text-yellow-300 flex"
+                                                >
+                                                   <a
+                                                      href={el.url}
+                                                      target="_blank"
+                                                      title={el.url}
+                                                      className="block"
+                                                   >
+                                                      {el.name}
+                                                   </a>
+                                                </li>
+                                             )}
+                                          </>
                                        ))}
                                     </ul>
                                  </div>

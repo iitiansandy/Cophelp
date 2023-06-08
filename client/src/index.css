@@ -32,3 +32,9 @@ html{
   margin-right: 5px;
   font-family: FontAwesome;
 }
+
+.hiddenInnerItem > ul > li:before{
+  content: '\1F449';
+  margin-right: 5px;
+  font-family: FontAwesome;
+}
