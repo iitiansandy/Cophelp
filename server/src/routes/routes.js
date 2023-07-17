@@ -4,6 +4,7 @@ const router = express.Router();
 
 const menuController = require("../controllers/menuController");
 const adminController = require("../controllers/adminController");
+const enquiryController = require('../controllers/enquiryController');
 
 // ADMIN APIs
 router.post("/admin", adminController.signUpAdmin);
@@ -15,5 +16,8 @@ router.get("/menus", menuController.getAllMenus);
 router.get("/menu/:menuId", menuController.getMenuById);
 router.put("/menu/:menuId", menuController.updateMenuById);
 router.delete("/menu/:menuId", menuController.deleteMenuById);
+
+// ENQUIRY API
+router.post("/contactus", enquiryController.addContactUsDetails);
 
 module.exports = router;
